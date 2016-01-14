@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.qunduikj.pushapplication" >
 
-
     <!-- 自定义权限 部分手机型号不能正常运行个推SDK，需添加自定义权限进行配置。
          GetuiService.第三方包名-->
     <uses-permission android:name="getui.permission.GetuiService.com.qunduikj.pushapplication" />
@@ -30,7 +29,8 @@
 
         <receiver android:name=".PushReceiver">
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.com.qunduikj.pushapplication" />
+                <!-- 替换为action android:name="com.igexin.sdk.action.第三方应用APPID" -->
+                <action android:name="com.igexin.sdk.action.kE7HT4vyGyAEjd3LB0V5z2" />
             </intent-filter>
         </receiver>
     </application>

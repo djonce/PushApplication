@@ -33,14 +33,6 @@
             android:exported="true"
             android:label="NotificationCenterUser" >
         </service>
-
-        <service
-            android:name="com.igexin.download.DownloadService"
-            android:process=":pushservice" />
-        <service
-            android:name="com.igexin.getuiext.service.GetuiExtService"
-            android:process=":pushservice" />
-
         <receiver
             android:name="com.igexin.sdk.PushManagerReceiver"
             android:exported="false" >
@@ -48,44 +40,6 @@
                 <action android:name="com.igexin.sdk.action.pushmanager" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name="com.igexin.sdk.PushActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:process=":pushservice"
-            android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.igexin.getuiext.activity.GetuiExtActivity"
-            android:configChanges="orientation|keyboard|keyboardHidden"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:process=":pushservice"
-            android:taskAffinity="android.task.myServicetask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <activity
-            android:name="com.igexin.sdk.GActivity"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:process=":pushservice"
-            android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
-        <receiver android:name="com.igexin.download.DownloadReceiver" >
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <!--替换为downloads.第三方包名-->
-        <provider
-            android:name="com.igexin.download.DownloadProvider"
-            android:exported="true"
-            android:authorities="downloads.com.qunduikj.pushapplication"
-            android:process=":pushservice" />
 
         <!--需要修改的部分-->
         <receiver
@@ -96,6 +50,51 @@
                 <action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4" />
                 <!--替换为android:name="com.igexin.sdk.action.第三方的APPID"-->
                 <action android:name="com.igexin.sdk.action.kE7HT4vyGyAEjd3LB0V5z2" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ##############选择配置项 #####################-->
+        <activity
+            android:name="com.igexin.sdk.PushActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.igexin.sdk.GActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+            android:name="com.igexin.getuiext.activity.GetuiExtActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="android.task.myServicetask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 下载类的-->
+        <service
+            android:name="com.igexin.download.DownloadService"
+            android:process=":pushservice" />
+        <service
+            android:name="com.igexin.getuiext.service.GetuiExtService"
+            android:process=":pushservice" />
+        <!--替换为downloads.第三方包名-->
+        <provider
+            android:name="com.igexin.download.DownloadProvider"
+            android:exported="true"
+            android:authorities="downloads.com.qunduikj.pushapplication"
+            android:process=":pushservice" />
+
+        <receiver android:name="com.igexin.download.DownloadReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
